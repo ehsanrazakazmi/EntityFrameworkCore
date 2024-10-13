@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EntityFrameworkCore.Models
+{
+    public class Customer
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; } = null!;  
+        public string LastName { get; set; } = null!;  
+        public string? Address { get; set; }
+        public string? Phone { get; set; }
+        public string? Email { get; set; }
+        public ICollection<Order> Orders { get; set; } = null!;     // this is a navigational property which indicates
+                                                                    // that Customer can have 0 or more orders
+                                                                    // this will create one-many relationship in database
+    }
+}
